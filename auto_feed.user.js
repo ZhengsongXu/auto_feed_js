@@ -1973,6 +1973,8 @@ function walkDOM(n) {
                 if (!n.innerHTML.match(/^\[quote\]/)) {
                     n.innerHTML = '[quote]' + n.innerHTML + '[/quote]';
                 }
+            } else if (site_url.match(/tjupt/i)) {
+                    n.innerHTML = '[quote]' + n.innerHTML.trim() + '[/quote]';
             } else {
                 n.innerHTML = '';
             }
@@ -29594,4 +29596,5 @@ if (origin_site == 'ZHUQUE' && site_url.match(/^https:\/\/zhuque.in\/torrent\/in
     setTimeout(auto_feed, sleep_time);
 
 }
+
 
