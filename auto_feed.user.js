@@ -1978,9 +1978,9 @@ function walkDOM(n) {
             }
         } else if (n.nodeName == 'TD' && n.innerHTML.match(/此处包含部分隐藏内容/)) {
             n.innerHTML = '';
-        } else if (n.nodeName == 'TD' && site_url.match(/tjupt/i) && n.innerHTML.match(/General/)) {
-            n.innerHTML = '[quote]' + n.innerHTML + '[/quote]';
-        }
+        } else if (n.nodeName == 'DIV' && site_url.match(/tjupt/i) && n.id == 'formatMediainfo') {
+            n.innerHTML = '';
+        } 
         if (n.hasChildNodes()) {
             walkDOM(n.firstChild);
         } else {
@@ -29584,4 +29584,5 @@ if (origin_site == 'ZHUQUE' && site_url.match(/^https:\/\/zhuque.in\/torrent\/in
     });
 } else {
     setTimeout(auto_feed, sleep_time);
+
 }
