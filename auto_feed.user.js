@@ -13403,6 +13403,14 @@ function auto_feed() {
                     }
                     descr = document.getElementById("kdescr");
                     descr = descr.cloneNode(true);
+                    try{
+                        var codetop = descr.getElementsByClassName('codetop');
+                        Array.from(codetop).map((e, index)=>{
+                            try{descr.removeChild(e);} catch(err){e.parentNode.removeChild(e)}
+                        });
+                    }catch(err){
+                        console.log(err);
+                    }
                     raw_info.descr = '';
                     raw_info.descr = walkDOM(descr);
                     raw_info.descr = raw_info.descr.replace(/站外链接 :: /ig, '');
@@ -29586,3 +29594,4 @@ if (origin_site == 'ZHUQUE' && site_url.match(/^https:\/\/zhuque.in\/torrent\/in
     setTimeout(auto_feed, sleep_time);
 
 }
+
